@@ -1,0 +1,26 @@
+name: Publicar no Instagram
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # a cada 15 minutos (o GitHub pode atrasar alguns minutos)
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: fila
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Publicar posts aprovados e vencidos
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/publicar.py
