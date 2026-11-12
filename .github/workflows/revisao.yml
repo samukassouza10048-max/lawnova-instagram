@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install pillow
       - name: Abrir issue de revisão para cada post novo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -42,7 +42,7 @@ def quando_legivel(dados):
 
 
 def url_raw(caminho_relativo, sha=None):
-    sha = sha or os.environ.get("GITHUB_SHA") or git("rev-parse", "HEAD").strip()
+    sha = sha or git("rev-parse", "HEAD").strip()
     partes = "/".join(urllib.parse.quote(x) for x in pathlib.PurePosixPath(caminho_relativo).parts)
     return f"https://raw.githubusercontent.com/{REPO}/{sha}/{partes}"
 

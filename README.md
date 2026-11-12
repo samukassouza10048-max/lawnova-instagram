@@ -33,6 +33,9 @@ fila/2026-11-16_0900_story_calendario/
 }
 ```
 
+Em vez de colocar a imagem na pasta, dá para mandar o link de exportação (ex.: Canva) em `"baixar": ["https://..."]`.
+O robô baixa, converte para JPG e preenche `midia` sozinho. O link precisa estar válido na hora do envio.
+
 **Tipos:**
 - `FEED`: 1 imagem, 1080×1350
 - `CARROSSEL`: 2 a 20 imagens

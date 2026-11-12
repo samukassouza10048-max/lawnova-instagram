@@ -1,0 +1,8 @@
+{
+  "quando": "2026-11-13T09:00:00-03:00",
+  "tipo": "STORY",
+  "titulo": "Financeiro (teste do robô)",
+  "legenda": "",
+  "baixar": ["https://export-download.canva.com/Fy384/DAHaK3Fy384/-1/0/0001-8628292952515724768.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261112T134312Z&X-Amz-Expires=18458&X-Amz-Signature=bb280f12a03935ca6d1383fd4f74e0906dfe4fea3ffb2e8d5bffd2e3e07b6c52&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2012%20Nov%202026%2018%3A50%3A50%20GMT"],
+  "aprovado": false
+}

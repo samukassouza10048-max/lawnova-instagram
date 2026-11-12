@@ -32,7 +32,37 @@ def garantir_etiqueta():
         comum.gh("POST", "labels", {"name": "aprovado", "color": "0f766e", "description": "Liberado para publicar"})
 
 
+def baixar_midias():
+    """Posts podem vir com "baixar": [urls] (ex.: exportação do Canva). Baixa, converte para JPG e grava na pasta."""
+    import io
+    import urllib.request
+    from PIL import Image
+    mudou = False
+    for pasta, dados in comum.posts():
+        urls = dados.get("baixar")
+        if not urls:
+            continue
+        nomes = []
+        for i, u in enumerate(urls, 1):
+            with urllib.request.urlopen(u, timeout=120) as r:
+                bruto = r.read()
+            if u.lower().split("?")[0].endswith((".mp4", ".mov")):
+                nome = f"{i}.mp4"; (pasta / nome).write_bytes(bruto)
+            else:
+                im = Image.open(io.BytesIO(bruto)).convert("RGB")
+                nome = f"{i}.jpg"; im.save(pasta / nome, "JPEG", quality=95, optimize=True)
+            nomes.append(nome)
+        dados["midia"] = nomes
+        dados.pop("baixar")
+        comum.salvar(pasta, dados)
+        mudou = True
+        print("Mídia baixada:", pasta.name, nomes)
+    if mudou:
+        comum.commitar("Baixa mídias dos posts novos")
+
+
 def main():
+    baixar_midias()
     novos = [(p, d) for p, d in comum.posts() if not d.get("issue")]
     if not novos:
         print("Nenhum post novo."); return
