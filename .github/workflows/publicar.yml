@@ -1,7 +1,7 @@
 name: Publicar no Instagram
 on:
   schedule:
-    - cron: "*/15 * * * *"   # a cada 15 minutos (o GitHub pode atrasar alguns minutos)
+    - cron: "4,19,34,49 * * * *"   # a cada 15 min, fora dos minutos cheios (o GitHub atrasa/descarta mais no minuto 0)
   workflow_dispatch:
 permissions:
   contents: write
