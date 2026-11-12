@@ -43,10 +43,10 @@ fila/2026-11-16_0900_story_calendario/
 
 | Segredo | O que é |
 |---|---|
-| `IG_TOKEN` | Token de acesso do Instagram (app no Meta for Developers → "Instagram API with Instagram Login" → gerar token da conta @lawnova.oficial) |
+| `IG_TOKEN` | Token de acesso **da Página do Facebook da LawNova** (ligada ao @lawnova.oficial), gerado no app "LawNova Publicador" do Meta for Developers. Token de Página gerado a partir de um token de usuário de longa duração **não expira**. |
 | `GH_PAT` | (opcional) Token do GitHub com permissão de escrever *Secrets* neste repositório. É usado para gravar o token renovado. |
 
-O token do Instagram vale 60 dias. O robô `renovar-token` renova toda segunda-feira.
+Se no futuro usarmos o login do Instagram (token de 60 dias), defina a variável `IG_API_HOST=https://graph.instagram.com`: o robô `renovar-token` passa a renovar toda segunda-feira.
 
 ## Limites
 

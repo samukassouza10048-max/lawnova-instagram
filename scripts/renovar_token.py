@@ -25,6 +25,9 @@ def gravar_segredo(nome, valor, pat, repo):
 
 
 def main():
+    if "graph.facebook.com" in ig.HOST:
+        print("Token de Página do Facebook não expira: nada a renovar.")
+        return
     token = os.environ["IG_TOKEN"].strip()
     r = ig.renovar_token(token)
     novo = r.get("access_token", "")

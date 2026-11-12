@@ -6,7 +6,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-HOST = os.environ.get("IG_API_HOST", "https://graph.instagram.com")
+HOST = os.environ.get("IG_API_HOST") or "https://graph.facebook.com"
 VERSAO = os.environ.get("IG_API_VERSION", "v23.0")
 
 
@@ -34,6 +34,15 @@ def _req(metodo, caminho, params, token):
 
 
 def conta(token):
+    """Devolve {"user_id", "username"} da conta do Instagram ligada ao token.
+    Token de Página (login do Facebook): usa instagram_business_account da Página.
+    Token do Instagram (login do Instagram): usa /me direto."""
+    if "graph.facebook.com" in HOST:
+        r = _req("GET", "me", {"fields": "name,instagram_business_account{id,username}"}, token)
+        iba = r.get("instagram_business_account")
+        if not iba:
+            raise ErroIG(f"A Página '{r.get('name')}' não tem Instagram profissional conectado.")
+        return {"user_id": iba["id"], "username": iba.get("username", "")}
     return _req("GET", "me", {"fields": "user_id,username"}, token)
 
 
