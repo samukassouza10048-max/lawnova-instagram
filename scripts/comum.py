@@ -70,6 +70,12 @@ def fechar(issue, motivo="completed"):
         gh("PATCH", f"issues/{issue}", {"state": "closed", "state_reason": motivo})
 
 
+# identidade do robô para commits e rebases (o pull --rebase também precisa dela)
+for _k, _v in (("GIT_AUTHOR_NAME", "lawnova-bot"), ("GIT_COMMITTER_NAME", "lawnova-bot"),
+               ("GIT_AUTHOR_EMAIL", "bot@lawnova.local"), ("GIT_COMMITTER_EMAIL", "bot@lawnova.local")):
+    os.environ.setdefault(_k, _v)
+
+
 def git(*args):
     return subprocess.run(["git", *args], cwd=RAIZ, check=True, capture_output=True, text=True).stdout
 
@@ -86,4 +92,5 @@ def commitar(mensagem):
             return True
         except subprocess.CalledProcessError as e:
             print("push falhou, tentando de novo:", e.stderr[-300:])
+            subprocess.run(["git", "rebase", "--abort"], cwd=RAIZ, capture_output=True)
     raise SystemExit("Não consegui enviar o commit.")
