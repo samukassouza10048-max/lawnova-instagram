@@ -38,12 +38,29 @@ def conta(token):
     Token de Página (login do Facebook): usa instagram_business_account da Página.
     Token do Instagram (login do Instagram): usa /me direto."""
     if "graph.facebook.com" in HOST:
-        r = _req("GET", "me", {"fields": "name,instagram_business_account{id,username}"}, token)
-        iba = r.get("instagram_business_account")
-        if not iba:
-            raise ErroIG(f"A Página '{r.get('name')}' não tem Instagram profissional conectado.")
-        return {"user_id": iba["id"], "username": iba.get("username", "")}
-    return _req("GET", "me", {"fields": "user_id,username"}, token)
+        try:
+            r = _req("GET", "me", {"fields": "name,instagram_business_account{id,username}"}, token)
+            iba = r.get("instagram_business_account")
+            if not iba:
+                raise ErroIG(f"A Página '{r.get('name')}' não tem Instagram profissional conectado.")
+            return {"user_id": iba["id"], "username": iba.get("username", ""), "token": token, "tipo": "pagina"}
+        except ErroIG as e:
+            if "nonexisting field" not in str(e):
+                raise
+        # É um token de usuário: acha a Página que tem o Instagram e usa o token dela.
+        r = _req("GET", "me/accounts", {"fields": "name,access_token,instagram_business_account{id,username}"}, token)
+        alvo = os.environ.get("IG_USERNAME", "lawnova.oficial").lower()
+        paginas = [p for p in r.get("data", []) if p.get("instagram_business_account")]
+        escolhida = next((p for p in paginas if p["instagram_business_account"].get("username", "").lower() == alvo),
+                         paginas[0] if paginas else None)
+        if not escolhida:
+            raise ErroIG("Nenhuma Página com Instagram profissional encontrada para este token.")
+        iba = escolhida["instagram_business_account"]
+        return {"user_id": iba["id"], "username": iba.get("username", ""), "token": escolhida["access_token"],
+                "tipo": "usuario"}
+    r = _req("GET", "me", {"fields": "user_id,username"}, token)
+    r.update({"token": token, "tipo": "instagram"})
+    return r
 
 
 def _esperar(container_id, token, limite_s=300):

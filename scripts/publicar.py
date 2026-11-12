@@ -16,7 +16,8 @@ def main():
                 if d.get("aprovado") and not d.get("falhou") and comum.quando(d) <= comum.agora()]
     if not vencidos:
         print("Nada para publicar agora."); return
-    ig_id = ig.conta(token)["user_id"]
+    c = ig.conta(token)
+    ig_id, token = c["user_id"], c["token"]
     sha = comum.git("rev-parse", "HEAD").strip()
     for pasta, dados in vencidos:
         rel = pasta.relative_to(comum.RAIZ).as_posix()
