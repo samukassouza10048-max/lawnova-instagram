@@ -3,9 +3,9 @@
   "tipo": "STORY",
   "titulo": "Audiências · Audiências sem surpresa.",
   "legenda": "",
-  "baixar": [
-    "https://export-download.canva.com/gqweI/DAHaucgqweI/-1/0/0001-2277091575550778532.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261111%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261111T221759Z&X-Amz-Expires=77077&X-Amz-Signature=2273c26a5a08fcd95b2f4081325d46017c747a6267a956c0813267454b523108&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2012%20Nov%202026%2019%3A42%3A36%20GMT"
-  ],
   "aprovado": false,
-  "canva": "DAHaucgqweI"
+  "canva": "DAHaucgqweI",
+  "midia": [
+    "1.jpg"
+  ]
 }
