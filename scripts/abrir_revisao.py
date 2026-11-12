@@ -38,6 +38,7 @@ def baixar_midias():
     import urllib.request
     from PIL import Image
     mudou = False
+    atualizados = []
     for pasta, dados in comum.posts():
         urls = dados.get("baixar")
         if not urls:
@@ -56,9 +57,16 @@ def baixar_midias():
         dados.pop("baixar")
         comum.salvar(pasta, dados)
         mudou = True
+        if dados.get("issue"):
+            atualizados.append((pasta, dados))
         print("Mídia baixada:", pasta.name, nomes)
     if mudou:
         comum.commitar("Baixa mídias dos posts novos")
+    # post que já tinha revisão aberta: avisa na issue que a arte mudou (e volta a pedir aprovação)
+    for pasta, dados in atualizados:
+        rel = pasta.relative_to(comum.RAIZ).as_posix()
+        imgs = "\n".join(f'<img src="{comum.url_raw(rel + "/" + m)}" width="360">' for m in dados["midia"])
+        comum.comentar(dados["issue"], f"🔄 **Arte atualizada:**\n\n{imgs}\n\nSe estiver ok, comente `aprovado`.")
 
 
 def main():

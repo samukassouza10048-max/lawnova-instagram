@@ -1,0 +1,10 @@
+{
+  "quando": "2026-11-13T18:00:00-03:00",
+  "tipo": "STORY",
+  "titulo": "Teste por 7 dias",
+  "legenda": "",
+  "baixar": [
+    "https://export-download.canva.com/oz7cc/DAHaKzoz7cc/-1/0/0001-1568900536513970331.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261112T130617Z&X-Amz-Expires=21375&X-Amz-Signature=ab5c071696c1b885e348d06ac7299e967ea5fc87cbb9182fedbf44b7853aa86e&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2012%20Nov%202026%2019%3A02%3A32%20GMT"
+  ],
+  "aprovado": false
+}
