@@ -7,7 +7,7 @@ import urllib.parse
 import urllib.request
 
 HOST = os.environ.get("IG_API_HOST") or "https://graph.facebook.com"
-VERSAO = os.environ.get("IG_API_VERSION", "v23.0")
+VERSAO = os.environ.get("IG_API_VERSION", "v27.0")
 
 
 class ErroIG(Exception):
