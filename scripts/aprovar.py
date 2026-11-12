@@ -17,7 +17,10 @@ def achar_post(issue):
     pasta = comum.RAIZ / m.group(1)
     if not (pasta / "post.json").exists():
         return None, None
-    return pasta, json.loads((pasta / "post.json").read_text(encoding="utf-8"))
+    dados = json.loads((pasta / "post.json").read_text(encoding="utf-8"))
+    if dados.get("issue") and dados["issue"] != issue.get("number"):
+        return None, None  # issue antiga/duplicada: não mexe no post
+    return pasta, dados
 
 
 def main():
