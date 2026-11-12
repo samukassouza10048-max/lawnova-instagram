@@ -3,8 +3,8 @@
   "tipo": "STORY",
   "titulo": "Controladoria",
   "legenda": "",
-  "baixar": [
-    "https://export-download.canva.com/DIfT4/DAHaKzDIfT4/-1/0/0001-7511400242412005285.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261112T045851Z&X-Amz-Expires=51497&X-Amz-Signature=59b9ac72c79792d1d4d3518fab89b7dd7c4b15b924694e1bc398ef6cf33bc378&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2012%20Nov%202026%2019%3A17%3A08%20GMT"
-  ],
-  "aprovado": false
+  "aprovado": false,
+  "midia": [
+    "1.jpg"
+  ]
 }
