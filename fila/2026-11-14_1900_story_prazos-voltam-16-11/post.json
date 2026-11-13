@@ -3,9 +3,9 @@
   "tipo": "STORY",
   "titulo": "Lembrete · Prazos voltam a correr na segunda, 16/11 (CNJ Portaria 551)",
   "legenda": "",
-  "baixar": [
-    "https://export-download.canva.com/ZerRM/DAHa1jZerRM/-1/0/0001-6382122762778138452.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261113T205310Z&X-Amz-Expires=13182&X-Amz-Signature=623b96523977a0a254be69545e004ef0f91f78f2b0b8513f9b541264d5c3ac09&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2014%20Nov%202026%2000%3A32%3A52%20GMT"
-  ],
   "canva": "DAHa1jZerRM",
-  "aprovado": false
+  "aprovado": false,
+  "midia": [
+    "1.jpg"
+  ]
 }

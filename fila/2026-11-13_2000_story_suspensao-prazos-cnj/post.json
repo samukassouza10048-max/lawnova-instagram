@@ -3,9 +3,9 @@
   "tipo": "STORY",
   "titulo": "Notícia · CNJ suspende prazos em 12 e 13/11 (Portaria Presidência 551)",
   "legenda": "",
-  "baixar": [
-    "https://export-download.canva.com/GTQDA/DAHa1mGTQDA/-1/0/0001-1295306983257748832.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH4R7NKVBA%2F20261113%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261113T053941Z&X-Amz-Expires=66039&X-Amz-Signature=050ea2a8ff9ef7b7ec8f4d2765e2c7a18a8a16a887a74ff2eaacb2021e548262&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2014%20Nov%202026%2000%3A00%3A20%20GMT"
-  ],
   "canva": "DAHa1mGTQDA",
-  "aprovado": false
+  "aprovado": false,
+  "midia": [
+    "1.jpg"
+  ]
 }
