@@ -12,5 +12,6 @@
     "6.jpg",
     "7.jpg"
   ],
-  "aprovado": false
+  "aprovado": false,
+  "issue": 27
 }
